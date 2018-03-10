@@ -1,0 +1,6 @@
+crontab -l > vz
+target="0 4 * * 2"
+target="$target apt update >> /var/log/update_script.log && apt upgrade >> /var/log/update_script.log"
+echo "$target" >> vz
+crontab vz
+rm vz

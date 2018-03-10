@@ -1,0 +1,7 @@
+for i in $(dig +short slash16.org A)
+	do
+		echo $i
+		whois $i | grep "OrgTechName: "
+	done
+
+#A for address

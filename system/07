@@ -1,0 +1,3 @@
+sudo service ssh status | grep PID
+
+cat /var/run/sshd.pid

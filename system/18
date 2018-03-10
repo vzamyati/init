@@ -1,0 +1,5 @@
+sudo iptables --append INPUT --source 10.0.0.0/8 --jump ACCEPT
+
+# -A, --append (adds rules to the chain)
+# -s, --source (source specification)
+# -j, --jump (what to do if the packet matches it)

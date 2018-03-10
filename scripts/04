@@ -1,0 +1,14 @@
+if [ ! -e test.md5 ]
+then
+    md5sum /etc/crontab > ./test.md5
+fi
+
+if  (md5sum -c ./test.md5 | grep "FAILED")
+then
+    echo "File /etc/crontab has been changed" | mail -s "changes" root && md5sum /etc/crontab > ./test.md5
+fi
+
+if (!(crontab -l | grep ./04.sh))
+then
+    echo "0 0 * * * ./04.sh" | crontab -
+fi
